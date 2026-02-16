@@ -5,10 +5,56 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hospital Queue System</title>
-  </head>
-  <body>
-        <style>
-        body { font-family: Arial; background:#f2f2f2; }
+
+    <style>
+    
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .navbar {
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      border-bottom: 2px solid #ddd;
+      background: #fff;
+      position: fixed;
+      top: 0;
+      width: 95%;
+    }
+
+    .menu a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      text-align: end;
+    }
+
+    .menu a.active {
+      color: #5b6cff;
+      border-bottom: 2px solid #5b6cff;
+      padding-bottom: 4px;
+    }
+
+        .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #5b6cff;
+    }
+
+    .btn {
+      background: #5b6cff;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    body { font-family: Arial; background:#f2f2f2; }
         .box {
             width: 400px;
             margin: 40px auto;
@@ -25,40 +71,12 @@
         button { background: green; color: white; border: none; }
         button:hover { background: darkgreen; }
 
-        .navbar{
-          display: flex;
-          justify-content: space-between;
-          padding: 15px 40px;
-          border-bottom: 1px solid #ddd;
-          background: #fff;
-        }
 
-        .menu a {
-          margin: 0 15px;
-          text-decoration: none;
-          color: #333;
-          font-weight: 500;
-        }
 
-        .menu a.active{
-          color: #5b6cff;
-          border-bottom: 2px solid #5b6cff;
-          padding-bottom: 4px;
-        }
+
     </style>
-</head>
+
 <body>
-
-  <div class="navbar">
-    <div class="menu">
-    <a href="#" onclick="setActive(this)">Home</a>
-    <a href="#" onclick="setActive(this)">All Doctors</a>
-    <a href="#" onclick="setActive(this)">About</a>
-    <a href="#" onclick="setActive(this)">Contact</a>
-
-    <a href="#" class="btn" onclick="createAccount()">Create Account</a>
-    </div>
-  
 
 <div class="box">
     <h2>Hospital Token System</h2>
@@ -71,6 +89,19 @@
     <ul id="list"></ul>
 </div>
 
+<div class="navbar">
+    <div class="menu">
+
+    <a href="#" onclick="setActive(this)">Home</a>
+    <a href="#" onclick="setActive(this)">All Doctors</a>
+    <a href="#" onclick="setActive(this)">About</a>
+    <a href="#" onclick="setActive(this)">Contact</a>
+  </div>
+
+  <a href="#" class="btn" onclick="createAccount()">Create Account</a>
+</div>
+
+
 <script>
 let queue = [];
 
@@ -82,7 +113,7 @@ function addPatient() {
         return;
     }
 
-    queue.push(name);  // Add to queue
+    queue.push(name);  
     document.getElementById("name").value = "";
     displayQueue();
 }
@@ -93,7 +124,7 @@ function nextPatient() {
         return;
     }
 
-    let removed = queue.shift();  // Remove first patient
+    let removed = queue.shift();  
     alert("Now Consulting: " + removed);
     displayQueue();
 }
@@ -109,5 +140,29 @@ function displayQueue() {
 </script>
 
 
-  </body>
-</html>
+<script>
+  function setActive(element) {
+    document.querySelectorAll('.menu a')
+      .forEach(link => link.classList.remove('active'));
+
+    element.classList.add('active');
+  }
+
+  function createAccount() {
+    alert("Create Account clicked!");
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
