@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import viteLogo from '/vite.svg'
 import './App.css'
+import index from './components';
 import Home from './components/Home';
 import CreateAccount from './components/CreateAccount';
 import Login from './components/Login';
@@ -9,6 +10,15 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
+  
+  <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/create-account" element={<CreateAccount />} />
+    </Routes>
+  );
+}
+
     <>
       <div>
         <a href="https://vite.dev" target="_blank">
@@ -18,10 +28,11 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="App">
+        <index />
         <Home />
-        <CreateAccount />
-        <Login />
-
+        <CreateAccount/>
+        <Login/>
+        
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
@@ -33,7 +44,5 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
-}
 
 export default App
